@@ -9,7 +9,7 @@ const Navbar = () => {
         <Link href={"/"}>Home</Link>
       </li>
       <li>
-        <Link href={""}>All Animals</Link>
+        <Link href={"/allAnimal"}>All Animals</Link>
       </li>
     </>
   );

@@ -62,7 +62,7 @@
     "age": 2,
     "location": "Mymensingh",
     "description": "Well-grown Jamunapari goat ideal for Eid-ul-Adha sacrifice.",
-    "image": "/images/jamunapari-goat.jpg",
+    "image": "https://i.ibb.co/tMZ5pJrB/78456-02.jpg",
     "category": "Featured"
   },
   {
@@ -75,7 +75,7 @@
     "age": 5,
     "location": "Khulna",
     "description": "High-quality Friesian cross cow with impressive weight and health.",
-    "image": "/images/friesian-cross-cow.jpg",
+    "image": "https://i.ibb.co/DgLpnBc1/animal6.png",
     "category": "Luxury"
   },
   {
@@ -88,7 +88,7 @@
     "age": 6,
     "location": "Chattogram",
     "description": "Imported Arabian camel suitable for large Qurbani with excellent health.",
-    "image": "/images/arabian-camel.jpg",
+    "image": "https://i.ibb.co/BKTmGyb8/animal8.jpg",
     "category": "Exclusive"
   },
   {
@@ -101,7 +101,7 @@
     "age": 3,
     "location": "Sirajganj",
     "description": "Strong and healthy Sahiwal breed with excellent body structure.",
-    "image": "/images/sahiwal-cow.jpg",
+    "image": "https://i.ibb.co/xSQWRG8c/animal1.png",
     "category": "Premium"
   }
 ]
