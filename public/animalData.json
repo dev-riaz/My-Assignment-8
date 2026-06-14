@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "name": "Deshi Shahi Cow",
+    "type": "Cow",
+    "breed": "Local Deshi",
+    "price": 120000,
+    "weight": 280,
+    "age": 3,
+    "location": "Bogura",
+    "description": "Healthy local deshi cow suitable for Qurbani with excellent weight and care.",
+    "image": "https://i.ibb.co/xSQWRG8c/animal1.png",
+    "category": "Premium"
+  },
+  {
+    "id": 2,
+    "name": "Australian Cross Bull",
+    "type": "Cow",
+    "breed": "Australian Cross",
+    "price": 185000,
+    "weight": 450,
+    "age": 4,
+    "location": "Dhaka",
+    "description": "Large Australian cross bull raised with proper nutrition and veterinary care.",
+    "image": "https://i.ibb.co/YBzStY37/animal4.png",
+    "category": "Premium"
+  },
+  {
+    "id": 3,
+    "name": "Black Bengal Goat",
+    "type": "Goat",
+    "breed": "Black Bengal",
+    "price": 28000,
+    "weight": 35,
+    "age": 2,
+    "location": "Rajshahi",
+    "description": "Pure Black Bengal goat known for its quality meat and healthy condition.",
+    "image": "https://i.ibb.co/KRjVTqn/got.png",
+    "category": "Standard"
+  },
+  {
+    "id": 4,
+    "name": "Pakistani White Sheep",
+    "type": "Sheep",
+    "breed": "Kajli",
+    "price": 55000,
+    "weight": 65,
+    "age": 2,
+    "location": "Rangpur",
+    "description": "Healthy white sheep with thick wool and ideal size for Qurbani.",
+    "image": "https://i.ibb.co/jPpLy8c7/ship.jpg",
+    "category": "Featured"
+  },
+
+  {
+    "id": 5,
+    "name": "Jamunapari Goat",
+    "type": "Goat",
+    "breed": "Jamunapari",
+    "price": 42000,
+    "weight": 52,
+    "age": 2,
+    "location": "Mymensingh",
+    "description": "Well-grown Jamunapari goat ideal for Eid-ul-Adha sacrifice.",
+    "image": "/images/jamunapari-goat.jpg",
+    "category": "Featured"
+  },
+  {
+    "id": 6,
+    "name": "Friesian Cross Cow",
+    "type": "Cow",
+    "breed": "Friesian Cross",
+    "price": 210000,
+    "weight": 510,
+    "age": 5,
+    "location": "Khulna",
+    "description": "High-quality Friesian cross cow with impressive weight and health.",
+    "image": "/images/friesian-cross-cow.jpg",
+    "category": "Luxury"
+  },
+  {
+    "id": 7,
+    "name": "Arabian Camel",
+    "type": "Camel",
+    "breed": "Dromedary",
+    "price": 650000,
+    "weight": 650,
+    "age": 6,
+    "location": "Chattogram",
+    "description": "Imported Arabian camel suitable for large Qurbani with excellent health.",
+    "image": "/images/arabian-camel.jpg",
+    "category": "Exclusive"
+  },
+  {
+    "id": 8,
+    "name": "Sahiwal Cow",
+    "type": "Cow",
+    "breed": "Sahiwal",
+    "price": 160000,
+    "weight": 390,
+    "age": 3,
+    "location": "Sirajganj",
+    "description": "Strong and healthy Sahiwal breed with excellent body structure.",
+    "image": "/images/sahiwal-cow.jpg",
+    "category": "Premium"
+  }
+]
