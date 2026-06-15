@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const AnimalCard = ({ animal }) => {
@@ -27,9 +28,11 @@ const AnimalCard = ({ animal }) => {
           </div>
           <h2 className="text-xl font-bold">{animal.price} TK</h2>
           <div className="">
-            <button className="btn w-full rounded-xl bg-[#0c4532] text-white">
-              View Details
-            </button>
+            <Link href={`/allAnimal/${animal.id}`}>
+              <button className="btn w-full rounded-xl bg-[#0c4532] text-white">
+                View Details
+              </button>
+            </Link>
           </div>
         </div>
       </div>

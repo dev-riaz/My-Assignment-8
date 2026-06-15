@@ -1,4 +1,4 @@
-import AnimalCard from "@/components/shared/AnimalCard";
+import Sort from "@/components/shared/Sort";
 
 const AllAnimalPage = async () => {
   const res = await fetch(
@@ -13,10 +13,8 @@ const AllAnimalPage = async () => {
     <div className="bg-white">
       <div className="w-11/12 mx-auto py-6">
         <h1 className="text-3xl font-bold">All Animals</h1>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mt-5">
-          {data.map((d) => (
-            <AnimalCard key={d.id} animal={d}></AnimalCard>
-          ))}
+        <div className="mt-4">
+          <Sort data={data}></Sort>
         </div>
       </div>
     </div>
