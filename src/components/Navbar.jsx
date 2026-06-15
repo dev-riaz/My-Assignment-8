@@ -1,15 +1,36 @@
+"use client";
 import image1 from "@/assets/icons8-cow-48 (1).png";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathname = usePathname();
   const NavLink = (
     <>
       <li>
-        <Link href={"/"}>Home</Link>
+        <Link
+          href={"/"}
+          className={`${
+            pathname === "/"
+              ? "text-yellow-400 font-bold border-b-2 border-yellow-400"
+              : "text-white"
+          }`}
+        >
+          Home
+        </Link>
       </li>
       <li>
-        <Link href={"/allAnimal"}>All Animals</Link>
+        <Link
+          href={"/allAnimal"}
+          className={`${
+            pathname === "/allAnimal"
+              ? "text-yellow-400 font-bold border-b-2 border-yellow-400"
+              : "text-white"
+          }`}
+        >
+          All Animals
+        </Link>
       </li>
     </>
   );
@@ -44,7 +65,13 @@ const Navbar = () => {
             </ul>
           </div>
           <a className="text-xl flex justify-center items-center gap-2 font-bold">
-            <Image className="bg-yellow-500 p-1 rounded-2xl" src={image1} width={40} height={40} alt="logo"></Image>
+            <Image
+              className="bg-yellow-500 p-1 rounded-2xl"
+              src={image1}
+              width={40}
+              height={40}
+              alt="logo"
+            ></Image>
             QurbaniHat
           </a>
         </div>
@@ -52,8 +79,10 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{NavLink}</ul>
         </div>
         <div className="navbar-end gap-4">
-          <a className="btn">LogIn</a>
-          <a className="btn">Register</a>
+          <a className="btn bg-[#14532D] text-white hover:border-yellow-500">
+            LogIn
+          </a>
+          <a className="btn bg-yellow-500 hover:border-[#14532D] ">Register</a>
         </div>
       </div>
     </div>

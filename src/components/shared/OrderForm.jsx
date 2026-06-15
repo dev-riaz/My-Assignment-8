@@ -63,6 +63,7 @@ const OrderForm = () => {
             <textarea
               placeholder="Enter your Location Details"
               className="border border-gray-300 w-full"
+              required
             ></textarea>
           </div>
           <button
