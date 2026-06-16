@@ -2,7 +2,7 @@
 
 import UpdateProfile from "@/components/shared/UpdateProfile";
 import { authClient } from "@/lib/auth-client";
-import { Avatar, Button, Card } from "@heroui/react";
+import { Avatar,Card } from "@heroui/react";
 import { Mail, User, Calendar } from "lucide-react";
 
 const ProfilePage = () => {
