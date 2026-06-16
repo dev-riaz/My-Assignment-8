@@ -109,18 +109,20 @@ const Navbar = () => {
           )}
           {user && (
             <div className="flex items-center gap-2">
-              <Avatar size="sm">
-                <Avatar.Image
-                  alt={user?.name}
-                  src={user?.image}
-                  referrerPolicy="no-referrer "
-                />
+              <Link href={"/profile"}>
+                <Avatar size="sm">
+                  <Avatar.Image
+                    alt={user?.name}
+                    src={user?.image}
+                    referrerPolicy="no-referrer "
+                  />
 
-                <Avatar.Fallback>
-                  {" "}
-                  {user?.name?.slice(0, 2).toUpperCase()}
-                </Avatar.Fallback>
-              </Avatar>
+                  <Avatar.Fallback>
+                    {" "}
+                    {user?.name?.slice(0, 2).toUpperCase()}
+                  </Avatar.Fallback>
+                </Avatar>
+              </Link>
               <Button
                 onClick={handleSignOut}
                 size="sm"
