@@ -1,5 +1,11 @@
 "use client";
+
 import image1 from "@/assets/bannar cow image.png";
+import image2 from "@/assets/gmail.png";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import {
   Button,
   Description,
@@ -9,32 +15,75 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { authClient } from "@/lib/auth-client";
+import toast from "react-hot-toast";
 
-const logInPage = () => {
-  const onSubmit = (e) => {
+const LoginPage = () => {
+  const router = useRouter();
+
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    // const data: Record<string, String> = {};
-    // Convert FormData to plain object
-    formData.forEach((value, key) => {
-      data[key] = value.toString();
-    });
-    alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
+
+    setLoading(true);
+    setErrorMessage("");
+
+    try {
+      const { data, error } = await authClient.signIn.email({
+        email: e.target.email.value,
+        password: e.target.password.value,
+      });
+
+      if (error) {
+        setErrorMessage(error.message || "Login failed!");
+        toast.error(error.message || "Login failed!");
+        setLoading(false);
+        return;
+      }
+
+      toast.success("Login Successful!");
+
+      setTimeout(() => {
+        router.push("/");
+      }, 1000);
+    } catch (err) {
+      console.error(err);
+      setErrorMessage("Something went wrong!");
+      toast.error("Something went wrong!");
+    }
+
+    setLoading(false);
+  };
+  const handleGoogleSignIn = async () => {
+    try {
+      await authClient.signIn.social({
+        provider: "google",
+      });
+    } catch (error) {
+      console.error(error);
+      toast.error("Google Sign In Failed!");
+    }
   };
 
   return (
-    <div className="bg-white">
-      <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 h-full p-6 shadow-2xl border-t-2 border-base-300 mt-5 rounded-3xl animate__animated animate__slideInLeft animate__slow">
-        <div className="flex justify-center items-center bg-white flex-1">
+    <div className="bg-white min-h-screen flex items-center">
+      <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 p-6 shadow-2xl border-t-2 border-base-300 rounded-3xl animate__animated animate__slideInLeft animate__slow">
+        {/* Left Side */}
+        <div className="flex justify-center items-center bg-white">
           <Form
-            className="w-96 p-2 space-y-4"
-            render={(props) => <form {...props} data-custom="foo" />}
+            className="w-full max-w-md p-2 space-y-4"
+            render={(props) => <form {...props} />}
             onSubmit={onSubmit}
           >
-            <h1>Please Login</h1>
+            <h1 className="text-3xl font-bold text-center">Please Login</h1>
+
+            {errorMessage && (
+              <div className="w-full rounded-lg bg-red-100 border border-red-300 p-3">
+                <p className="text-red-600 text-sm">{errorMessage}</p>
+              </div>
+            )}
 
             <TextField
               isRequired
@@ -54,7 +103,6 @@ const logInPage = () => {
 
             <TextField
               isRequired
-              minLength={8}
               name="password"
               type="password"
               validate={(value) => {
@@ -72,36 +120,63 @@ const logInPage = () => {
             >
               <Label>Password</Label>
               <Input className="w-full" placeholder="Enter Your Password" />
-              <Description>
+              <Description className="text-green-700">
                 Must be at least 8 characters with 1 uppercase and 1 number
               </Description>
               <FieldError />
             </TextField>
-            <div className="flex flex-col gap-2 mt-2">
-              <Button className="w-full" type="submit">
-                Submit
+
+            <div className="flex flex-col gap-2 mt-2 w-full">
+              <Button
+                className="w-full bg-[#0c4532] text-white"
+                type="submit"
+                isDisabled={loading}
+              >
+                {loading ? "Logging In..." : "Login"}
               </Button>
-              <Button className="w-full" type="reset" variant="secondary">
+
+              <Button className="w-full bg-yellow-400 text-black" type="reset">
                 Reset
               </Button>
+
               <p className="text-center">or</p>
-              <Button className="w-full" type="">
+
+              <Button
+                onClick={handleGoogleSignIn}
+                className="w-full bg-white text-black border border-gray-400"
+                type="button"
+              >
+                <Image src={image2} width={20} height={20} alt="Google Logo" />
                 Continue With Google
               </Button>
+
               <p className="text-center">
-                Already have an account?
-                <Link className="text-red-600" href={"#"}>
-                  {" "}
-                  Login →
+                Don not have an account?
+                <Link
+                  className="text-red-600 ml-1 font-semibold"
+                  href="/register"
+                >
+                  Register →
                 </Link>
               </p>
             </div>
           </Form>
         </div>
-        <div className="bg-[#14532D] text-white flex-1 rounded-3xl flex flex-col justify-center items-center px-5">
-          <Image src={image1} height={400} width={400} alt="moon image"></Image>
-          <h1 className="text-2xl font-bold">Welcome back to QurbaniHat</h1>
-          <p className="text-xs">
+
+        {/* Right Side */}
+        <div className="bg-[#14532D] text-white rounded-3xl flex flex-col justify-center items-center px-5 py-10">
+          <Image
+            src={image1}
+            height={400}
+            width={400}
+            alt="QurbaniHat Banner"
+          />
+
+          <h1 className="text-2xl font-bold text-center mt-4">
+            Welcome Back to QurbaniHat
+          </h1>
+
+          <p className="text-sm text-center mt-2">
             Login to browse, book and manage your Qurbani animals with ease.
           </p>
         </div>
@@ -110,4 +185,4 @@ const logInPage = () => {
   );
 };
 
-export default logInPage;
+export default LoginPage;

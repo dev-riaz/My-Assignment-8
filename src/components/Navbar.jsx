@@ -1,10 +1,23 @@
 "use client";
 import image1 from "@/assets/icons8-cow-48 (1).png";
+import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Avatar, Button } from "@heroui/react";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const userData = authClient.useSession();
+  const user = userData.data?.user;
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    await authClient.signOut();
+
+    router.push("/logIn");
+  };
+
   const pathname = usePathname();
   const NavLink = (
     <>
@@ -78,17 +91,45 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{NavLink}</ul>
         </div>
-        <div className="navbar-end gap-4">
-          <Link href={"/logIn"}>
-            <button className="btn bg-[#14532D] text-white hover:border-yellow-500">
-              LogIn
-            </button>
-          </Link>
-          <Link href={"/register"}>
-            <button className="btn bg-yellow-500 hover:border-[#14532D] ">
-              Register
-            </button>
-          </Link>
+
+        <div className="navbar-end">
+          {!user && (
+            <ul className="space-x-3">
+              <Link href={"/logIn"}>
+                <button className="btn bg-[#14532D] text-white hover:border-yellow-500">
+                  LogIn
+                </button>
+              </Link>
+              <Link href={"/register"}>
+                <button className="btn bg-yellow-500 hover:border-[#14532D] ">
+                  Register
+                </button>
+              </Link>
+            </ul>
+          )}
+          {user && (
+            <div className="flex items-center gap-2">
+              <Avatar size="sm">
+                <Avatar.Image
+                  alt={user?.name}
+                  src={user?.image}
+                  referrerPolicy="no-referrer "
+                />
+
+                <Avatar.Fallback>
+                  {" "}
+                  {user?.name?.slice(0, 2).toUpperCase()}
+                </Avatar.Fallback>
+              </Avatar>
+              <Button
+                onClick={handleSignOut}
+                size="sm"
+                className="btn bg-red-500 border-none shadow-none text-white"
+              >
+                SignOut
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </div>
