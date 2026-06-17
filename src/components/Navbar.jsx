@@ -45,6 +45,18 @@ const Navbar = () => {
           All Animals
         </Link>
       </li>
+      <li>
+        <Link
+          href={"/faq"}
+          className={`${
+            pathname === "/faq"
+              ? "text-yellow-400 font-bold border-b-2 border-yellow-400"
+              : "text-white"
+          }`}
+        >
+         FAQ
+        </Link>
+      </li>
     </>
   );
 
@@ -101,7 +113,7 @@ const Navbar = () => {
                 </button>
               </Link>
               <Link href={"/register"}>
-                <button className="btn bg-yellow-500 hover:border-[#14532D] shadow-none">
+                <button className="btn  bg-yellow-500 hover:border-[#14532D] shadow-none">
                   Register
                 </button>
               </Link>

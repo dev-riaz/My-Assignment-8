@@ -43,7 +43,7 @@ const RegisterPage = () => {
     toast.success("Registration Successful!");
 
     setTimeout(() => {
-      router.push("/");
+      router.push("/logIn");
     }, 1000);
   };
   const handleGoogleSignUp = async () => {
