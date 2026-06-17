@@ -83,7 +83,7 @@ function FAQItem({ faq }) {
 
 export default function FAQSection() {
   return (
-    <section className="bg-white py-12">
+    <section className="bg-white py-12 animate__animated animate__slideInLeft animate__slow">
       <div className="w-11/12 mx-auto max-w-3xl">
         {/* Header */}
         <h2 className="text-3xl mt-8  font-bold text-center text-[#0c4532]">
