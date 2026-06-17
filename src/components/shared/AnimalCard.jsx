@@ -7,18 +7,20 @@ const AnimalCard = ({ animal }) => {
 
   return (
     <div>
-      <div className="card shadow-sm bg-white rounded-2xl">
-        <div className="flex justify-center items-center">
-          <div className="absolute top-1 left-1 bg-[#0c4532] text-white text-xs font-semibold py-1 px-3 rounded-full">
+      <div className="shadow-sm bg-white rounded-2xl transition-all duration-400 hover:-translate-y-1 hover:shadow-lg">
+        <div className="relative flex justify-center items-center">
+          <div className="absolute left-2 top-2 z-10  bg-[#0c4532] text-white text-xs font-semibold py-1 px-3 rounded-full">
             {animal.type}
           </div>
-          <Image
-            className="w-full h-[250px] rounded-t-2xl object-cover"
-            src={image}
-            height={200}
-            width={200}
-            alt="cow image"
-          ></Image>
+          <div className="relative w-full h-[250px]">
+            <Image
+              src={image}
+              alt="cow image"
+              fill
+              className="object-cover rounded-t-2xl"
+              sizes="100vw"
+            />
+          </div>
         </div>
         <div className="p-3 space-y-2 text-[#42654d]">
           <h2 className="card-title">{animal.name}</h2>

@@ -72,7 +72,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-black rounded-box z-1 my-3 w-52 p-2 shadow"
             >
               {NavLink}
             </ul>
@@ -96,12 +96,12 @@ const Navbar = () => {
           {!user && (
             <ul className="space-x-3">
               <Link href={"/logIn"}>
-                <button className="btn bg-[#14532D] text-white hover:border-yellow-500">
+                <button className="btn bg-[#14532D] text-white hover:border-yellow-500 shadow-none">
                   LogIn
                 </button>
               </Link>
               <Link href={"/register"}>
-                <button className="btn bg-yellow-500 hover:border-[#14532D] ">
+                <button className="btn bg-yellow-500 hover:border-[#14532D] shadow-none">
                   Register
                 </button>
               </Link>

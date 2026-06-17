@@ -71,7 +71,7 @@ const LoginPage = () => {
     <div className="bg-white min-h-screen flex items-center">
       <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 p-6 shadow-2xl border-t-2 border-base-300 rounded-3xl animate__animated animate__slideInLeft animate__slow">
         {/* Left Side */}
-        <div className="flex justify-center items-center bg-white">
+        <div className="order-2 md:order-1 flex justify-center items-center bg-white">
           <Form
             className="w-full max-w-md p-2 space-y-4"
             render={(props) => <form {...props} />}
@@ -164,7 +164,7 @@ const LoginPage = () => {
         </div>
 
         {/* Right Side */}
-        <div className="bg-[#14532D] text-white rounded-3xl flex flex-col justify-center items-center px-5 py-10">
+        <div className="order-1 md:order-2 bg-[#14532D] text-white rounded-3xl flex flex-col justify-center items-center px-5 py-10">
           <Image
             src={image1}
             height={400}
